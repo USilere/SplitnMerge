@@ -48,15 +48,6 @@ def split_range(doc, start, end):
                 "'SplitFile1.pdf' document from range: {} - {} of {}".format(
                     start, end, doc))
 
-            output = PdfFileWriter()
-            for n in range(end_page, inputpdf.numPages):
-                output.addPage(inputpdf.getPage(n))
-            with open('SplitFile2.pdf', 'wb') as outputStream:
-                output.write(outputStream)
-            outputStream.close()
-            log.info(
-                "'SplitFile2.pdf' document from range: {} - {} of ".format(
-                    end_page, inputpdf.numPages, doc))
         except (IndexError, TypeError):
             log.exception('Please specify correct range')
 
